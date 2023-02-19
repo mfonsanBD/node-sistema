@@ -7,10 +7,14 @@
     "dev": "nodemon --exec ts-node ./src/index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
-    "husky:prepare": "husky install"
+    "husky:prepare": "husky install",
+    "test": "jest --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "test:staged": "yarn test --findRelatedTests"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/jest": "^29.4.0",
     "@types/node": "^18.0.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
@@ -20,9 +24,11 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^8.0.3",
+    "jest": "^29.4.3",
     "lint-staged": "^13.1.2",
     "nodemon": "^2.0.19",
     "prettier": "^2.8.4",
+    "ts-jest": "^29.0.5",
     "ts-node": "^10.8.2",
     "typescript": "*"
   },
