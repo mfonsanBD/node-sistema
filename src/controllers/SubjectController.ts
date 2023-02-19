@@ -1,4 +1,5 @@
 import { type Request, type Response } from 'express'
+import { BadRequestError } from '../helpers/api-errors'
 import { SubjectRespository } from '../repositories/SubjectRepository'
 
 export class SubjectController {
@@ -6,18 +7,13 @@ export class SubjectController {
     const { name } = req.body
 
     if (name === '') {
-      return res.status(400).json({ message: 'O nome da disciplina é obrigadtório' })
+      throw new BadRequestError('O nome da disciplina é obrigatório')
     }
 
-    try {
-      const newSubject = SubjectRespository.create({ name })
+    const newSubject = SubjectRespository.create({ name })
 
-      await SubjectRespository.save(newSubject)
+    await SubjectRespository.save(newSubject)
 
-      return res.status(201).json(newSubject)
-    } catch (error) {
-      console.log(error)
-      return res.status(500).json({ message: 'Internal Server Error' })
-    }
+    return res.status(201).json(newSubject)
   }
 }

@@ -9,7 +9,7 @@ export class RoomController {
     const { name } = req.body
 
     if (name === '') {
-      throw new BadRequestError('O nome da disciplina é obrigatório')
+      throw new BadRequestError('O nome da aula é obrigatório')
     }
 
     const newRoom = RoomRespository.create({ name })
@@ -22,7 +22,7 @@ export class RoomController {
     const { idRoom } = req.params
 
     if (title === '') {
-      throw new BadRequestError('O título da aula é obrigatório!')
+      throw new BadRequestError('O título do vídeo é obrigatório!')
     }
 
     const room = await RoomRespository.findOneBy({ id: Number(idRoom) })
