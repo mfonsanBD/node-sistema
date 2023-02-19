@@ -1,6 +1,6 @@
-import { Router } from "express";
-import { RoomController } from "./controllers/RoomController";
-import { SubjectController } from "./controllers/SubjectController";
+import { Router } from 'express'
+import { RoomController } from './controllers/RoomController'
+import { SubjectController } from './controllers/SubjectController'
 
 const routes = Router()
 

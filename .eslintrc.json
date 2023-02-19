@@ -4,7 +4,9 @@
         "node": true,
         "jest": true
     },
-    "extends": ["standard-with-typescript", "prettier"],
+    "extends": [
+      "standard-with-typescript"
+    ],
     "overrides": [
     ],
     "parserOptions": {
@@ -13,8 +15,12 @@
         "project": ["./tsconfig.json"]
     },
     "rules": {
-      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-unreachable": "off",
       "n/no-path-concat": "off",
-      "@typescript-eslint/no-misused-promises": "off"
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/no-useless-constructor": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/explicit-function-return-type": "off"
     }
 }

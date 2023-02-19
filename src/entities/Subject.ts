@@ -1,13 +1,13 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Room } from "./Room";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { Room } from './Room'
 
 @Entity('subjects')
 export class Subject {
   @PrimaryGeneratedColumn()
-  id: number
+    id: number
 
   @Column({ type: 'text' })
-  name: string
+    name: string
 
   @ManyToMany(() => Room, room => room.subjects)
   @JoinTable({
@@ -21,5 +21,5 @@ export class Subject {
       referencedColumnName: 'id'
     }
   })
-  rooms: Room[]
+    rooms: Room[]
 }

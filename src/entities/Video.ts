@@ -1,18 +1,18 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Room } from "./Room";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Room } from './Room'
 
 @Entity('videos')
 export class Video {
   @PrimaryGeneratedColumn()
-  id: number
+    id: number
 
   @Column({ type: 'text' })
-  title: string
+    title: string
 
   @Column({ type: 'text' })
-  url: string
+    url: string
 
   @ManyToOne(() => Room, room => room.videos)
   @JoinColumn({ name: 'room_id' })
-  room: Room
+    room: Room
 }
