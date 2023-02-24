@@ -1,4 +1,4 @@
-import { type Request, type Response } from 'express'
+import { Request, Response } from 'express'
 import { BadRequestError } from '../helpers/api-errors'
 import { SubjectRespository } from '../repositories/SubjectRepository'
 

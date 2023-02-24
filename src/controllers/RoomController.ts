@@ -1,15 +1,18 @@
-import { type Request, type Response } from 'express'
+import { Request, Response } from 'express'
 import { BadRequestError, NotFoundError } from '../helpers/api-errors'
 import { RoomRespository } from '../repositories/RoomRepository'
 import { SubjectRespository } from '../repositories/SubjectRepository'
 import { VideoRespository } from '../repositories/VideoRepository'
+import { createRoomValidation } from '../utils/validation'
 
 export class RoomController {
   async create (req: Request, res: Response) {
     const { name } = req.body
 
-    if (name === '') {
-      throw new BadRequestError('O nome da aula é obrigatório')
+    const nameValid = createRoomValidation(name)
+
+    if (nameValid.error) {
+      throw new BadRequestError(nameValid.error.details[0].message)
     }
 
     const newRoom = RoomRespository.create({ name })
