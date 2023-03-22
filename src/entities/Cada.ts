@@ -14,6 +14,6 @@ export class Cada {
   @Column({ type: 'text' })
     resolition: string
 
-  @Column({ type: 'text' })
-    status: string
+  @Column({ type: 'int' })
+    status: number
 }
