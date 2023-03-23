@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Permission } from './Permission'
 
 @Entity('users')
 export class User {
@@ -7,6 +8,10 @@ export class User {
 
   @Column({ type: 'text', generated: 'uuid' })
     systemId: string
+
+  @ManyToOne(() => Permission, permission => permission.users)
+	@JoinColumn({ name: 'permission_id' })
+	  permission_id: Permission
 
   @Column({ type: 'text' })
     firstName: string
