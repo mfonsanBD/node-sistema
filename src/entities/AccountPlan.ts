@@ -1,19 +1,19 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity('cadas')
-export class Cada {
+@Entity('account_plan')
+export class AccountPlan {
   @PrimaryGeneratedColumn()
     id: number
 
   @Column({ type: 'text',  })
-    servers: string
+    classe: string
 
   @Column({ type: 'text' })
-    demand: string
+    type: string
 
   @Column({ type: 'text' })
-    resolution: string
+    name: string
 
-  @Column({ type: 'int' })
-    status: number
+  @Column({ type: 'boolean' })
+    isTitle: boolean
 }
