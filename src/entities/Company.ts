@@ -33,6 +33,9 @@ export class Company {
   @Column({ type: 'int' })
     payroll: number
 
+  @Column({ type: 'text' })
+    observation: string
+
   @OneToMany(() => Affiliated, affiliated => affiliated.company)
     affiliated: Affiliated[]
 }
