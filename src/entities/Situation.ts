@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { OptionalData } from './OptionalData'
 
 @Entity('situations')
 export class Situation {
@@ -10,4 +11,7 @@ export class Situation {
 
   @Column({ type: 'text' })
     slug: string
+
+  @OneToOne(() => OptionalData, optionalData => optionalData.situation)
+    optional_data: OptionalData
 }

@@ -1,5 +1,6 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Company } from './Company'
+import { OptionalData } from './OptionalData'
 import { Process } from './Process'
 
 @Entity('affiliated')
@@ -40,4 +41,7 @@ export class Affiliated {
 
   @OneToMany(() => Process, process => process.affiliated)
     process: Process[]
+
+  @OneToOne(() => OptionalData, optionalData => optionalData.affiliated)
+    optional_data: OptionalData
 }
