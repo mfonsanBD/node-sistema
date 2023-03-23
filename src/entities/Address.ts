@@ -1,7 +1,6 @@
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Affiliated } from './Affiliated'
 import { Company } from './Company'
-import { OptionalData } from './OptionalData'
 import { Provider } from './Provider'
 
 @Entity('address')
