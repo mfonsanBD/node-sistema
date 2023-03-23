@@ -1,4 +1,5 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Address } from './Address'
 import { Company } from './Company'
 import { Contact } from './Contact'
 import { OptionalData } from './OptionalData'
@@ -48,4 +49,7 @@ export class Affiliated {
 
   @OneToOne(() => Contact, contact => contact.affiliated)
     contact: Contact
+
+  @OneToOne(() => Address, address => address.affiliated)
+    address: Address
 }

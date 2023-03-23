@@ -1,4 +1,5 @@
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Address } from './Address'
 import { Affiliated } from './Affiliated'
 import { Contact } from './Contact'
 
@@ -42,4 +43,7 @@ export class Company {
 
   @OneToOne(() => Contact, contact => contact.company)
     contact: Contact
+
+  @OneToOne(() => Address, address => address.company)
+    address: Address
 }

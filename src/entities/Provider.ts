@@ -1,4 +1,5 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Address } from './Address'
 import { Contact } from './Contact'
 
 @Entity('providers')
@@ -23,4 +24,7 @@ export class Provider {
 
   @OneToOne(() => Contact, contact => contact.provider)
     contact: Contact
+
+  @OneToOne(() => Address, address => address.provider)
+    address: Address
 }
