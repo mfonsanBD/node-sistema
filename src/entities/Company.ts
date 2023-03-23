@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Affiliated } from './Affiliated'
+import { Contact } from './Contact'
 
 @Entity('companies')
 export class Company {
@@ -38,4 +39,7 @@ export class Company {
 
   @OneToMany(() => Affiliated, affiliated => affiliated.company)
     affiliated: Affiliated[]
+
+  @OneToOne(() => Contact, contact => contact.company)
+    contact: Contact
 }

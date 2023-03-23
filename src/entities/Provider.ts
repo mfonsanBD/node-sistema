@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { Contact } from './Contact'
 
 @Entity('providers')
 export class Provider {
@@ -19,4 +20,7 @@ export class Provider {
 
   @Column({ type: 'text' })
     type: string
+
+  @OneToOne(() => Contact, contact => contact.provider)
+    contact: Contact
 }
