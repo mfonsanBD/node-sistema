@@ -1,10 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity('roles')
-export class Role {
+@Entity('situations')
+export class Situation {
   @PrimaryGeneratedColumn()
     id: number
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text',  })
     name: string
+
+  @Column({ type: 'text' })
+    slug: string
 }
